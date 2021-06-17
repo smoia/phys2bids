@@ -239,7 +239,7 @@ def phys2bids(filename, info=False, indir='.', outdir='.', heur_file=None,
                  phys_in.freq, infile, conversion_path)
     # If only info were asked, end here.
     if info:
-        return
+        return phys_in.get_metadata()
 
     # The next few lines remove the undesired channels from phys_in.
     if chsel:

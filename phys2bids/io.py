@@ -66,7 +66,8 @@ def check_multifreq(timeseries, freq, start=0, leftout=0):
     return mfreq
 
 
-def generate_blueprint(channel_list, chtrig, interval, orig_units, orig_names):
+def generate_blueprint(channel_list, chtrig, interval, orig_units, orig_names,
+                       filename=None):
     """
     Standarize channel_list, chtrig interval orig_units and orig_names.
 
@@ -165,7 +166,8 @@ def generate_blueprint(channel_list, chtrig, interval, orig_units, orig_names):
         timeseries = [t_ch, ] + timeseries
         freq = [max(freq)] + freq
     freq = check_multifreq(timeseries, freq)
-    return BlueprintInput(timeseries, freq, names, units, chtrig)
+    return BlueprintInput(timeseries, freq, names, units, chtrig,
+                          filename=filename)
 
 
 def read_header_and_channels(filename):
@@ -290,7 +292,8 @@ def load_txt(filename, chtrig=0):
     """
     header, channel_list = read_header_and_channels(filename)
     interval, orig_units, orig_names = extract_header_items(channel_list, header)
-    phys_in = generate_blueprint(channel_list, chtrig, interval, orig_units, orig_names)
+    phys_in = generate_blueprint(channel_list, chtrig, interval, orig_units,
+                                 orig_names, filename)
     return phys_in
 
 
@@ -336,7 +339,7 @@ def load_acq(filename, chtrig=0):
         units.append(ch.units)
         names.append(ch.name)
 
-    return BlueprintInput(timeseries, freq, names, units, chtrig)
+    return BlueprintInput(timeseries, freq, names, units, chtrig, filename=filename)
 
 
 def load_mat(filename, chtrig=0):
@@ -373,7 +376,8 @@ def load_mat(filename, chtrig=0):
         orig_units = list(mat_dict['units'])
         interval = [mat_dict['isi'], mat_dict['isi_units']]
         channel_list = mat_dict['data']
-        return generate_blueprint(channel_list, chtrig, interval, orig_units, orig_names)
+        return generate_blueprint(channel_list, chtrig, interval, orig_units,
+                                  orig_names, filename)
     else:
         # Convert data into 1d numpy array for easier indexing.
         data = np.squeeze(np.asarray(mat_dict['data']))
@@ -400,4 +404,4 @@ def load_mat(filename, chtrig=0):
         duration = (timeseries[0].shape[0] + 1) * interval
         t_ch = np.ogrid[0:duration:interval][:-1]
         timeseries = [t_ch, ] + timeseries
-        return BlueprintInput(timeseries, freq, names, units, chtrig)
+        return BlueprintInput(timeseries, freq, names, units, chtrig, filename=filename)

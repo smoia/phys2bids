@@ -281,16 +281,16 @@ class BlueprintInput():
     
     def get_metadata(self):
         """
-        Return all object properties but the timeseries.
+        Return all object properties that are not empty, except for the timeseries.
 
         Returns
         -------
-        dictionary
-            All info from the object, except the timeseries            
+        metadata: dict
+            All object properties that are not empty, except for the timeseries            
         """
         metadata = {'ch_num': self.ch_amount, 'filetype': self.filetype}
         for key in self.__dict__:
-            if key != 'timeseries':
+            if key != 'timeseries' and self.__dict__[key]:
                 metadata[key] = self.__dict__[key]
 
         return metadata

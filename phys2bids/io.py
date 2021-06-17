@@ -293,7 +293,7 @@ def load_txt(filename, chtrig=0):
     header, channel_list = read_header_and_channels(filename)
     interval, orig_units, orig_names = extract_header_items(channel_list, header)
     phys_in = generate_blueprint(channel_list, chtrig, interval, orig_units,
-                                 orig_names, filename)
+                                 orig_names, filename=filename)
     return phys_in
 
 
@@ -377,7 +377,7 @@ def load_mat(filename, chtrig=0):
         interval = [mat_dict['isi'], mat_dict['isi_units']]
         channel_list = mat_dict['data']
         return generate_blueprint(channel_list, chtrig, interval, orig_units,
-                                  orig_names, filename)
+                                  orig_names, filename=filename)
     else:
         # Convert data into 1d numpy array for easier indexing.
         data = np.squeeze(np.asarray(mat_dict['data']))

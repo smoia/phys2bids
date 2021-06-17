@@ -7,8 +7,11 @@ import logging
 import re
 from copy import deepcopy
 from itertools import groupby
+from pathlib import Path
 
 import numpy as np
+
+from phys2bids.utils import FILETYPE
 
 TRIGGER_NAMES = ["trig", "trigger"]
 
@@ -231,7 +234,8 @@ class BlueprintInput():
     """
 
     def __init__(self, timeseries, freq, ch_name, units, trigger_idx,
-                 num_timepoints_found=None, thr=None, time_offset=0):
+                 filename=None, num_timepoints_found=None, thr=None,
+                 time_offset=0):
         """Initialise BlueprintInput (see class docstring)."""
         self.timeseries = deepcopy(is_valid(timeseries, list, list_type=np.ndarray))
         self.freq = deepcopy(has_size(is_valid(freq, list,
@@ -240,6 +244,7 @@ class BlueprintInput():
         self.ch_name = deepcopy(has_size(ch_name, self.ch_amount, 'unknown'))
         self.units = deepcopy(has_size(units, self.ch_amount, '[]'))
         self.trigger_idx = deepcopy(is_valid(trigger_idx, int))
+        self.filename = deepcopy(filename)
         self.num_timepoints_found = deepcopy(num_timepoints_found)
         self.thr = deepcopy(thr)
         self.time_offset = deepcopy(time_offset)
@@ -261,6 +266,34 @@ class BlueprintInput():
             Number of channels
         """
         return len(self.timeseries)
+
+    @property
+    def filetype(self):
+        """
+        Property. Return the type of the file.
+
+        Returns
+        -------
+        str
+            Type of input file
+        """
+        return FILETYPE[Path(self.filename).suffix]
+    
+    def get_metadata(self):
+        """
+        Return all object properties but the timeseries.
+
+        Returns
+        -------
+        dictionary
+            All info from the object, except the timeseries            
+        """
+        metadata = {'ch_num': self.ch_amount, 'filetype': self.filetype}
+        for key in self.__dict__:
+            if key != 'timeseries':
+                metadata[key] = self.__dict__[key]
+
+        return metadata
 
     def __getitem__(self, idx):
         """

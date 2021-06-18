@@ -350,6 +350,8 @@ def phys2bids(filename, info=False, indir='.', outdir='.', heur_file=None,
                     'Skipping BIDS formatting.')
 
     # Export a (set of) phys_out for each element in phys_in
+    # Also create a list of output files
+    outfiles = []
     # run keys start from 1 (human friendly)
     for run in phys_in.keys():
         for uniq_freq in uniq_freq_list:
@@ -438,6 +440,9 @@ def phys2bids(filename, info=False, indir='.', outdir='.', heur_file=None,
                           os.path.join(conversion_path,
                                        os.path.splitext(os.path.basename(phys_out[key].filename)
                                                         )[0]))
+            outfiles = outfiles + [phys_out[key].filename + '.tsv.gz']
+
+    return outfiles
 
 
 def _main(argv=None):

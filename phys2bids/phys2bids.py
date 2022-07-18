@@ -129,7 +129,8 @@ def print_json(outfile, samp_freq, time_offset, ch_name):
     cite_module=True)
 def phys2bids(filename, info=False, indir='.', outdir='.', heur_file=None,
               sub=None, ses=None, chtrig=0, chsel=None, num_timepoints_expected=None,
-              tr=None, thr=None, pad=9, ch_name=[], yml='', debug=False, quiet=False):
+              tr=None, thr=None, pad=9, ch_name=[], yml='', debug=False, quiet=False,
+              liberalslice=False):
     """
     Run main workflow of phys2bids.
 
@@ -272,14 +273,20 @@ def phys2bids(filename, info=False, indir='.', outdir='.', heur_file=None,
             # Check that sum of tp expected is equivalent to num_timepoints_found,
             # if it passes call slice4phys
             if phys_in.num_timepoints_found != sum(num_timepoints_expected):
-                raise RuntimeError('The number of triggers found is different '
-                                   'than expected. Better stop now than break '
-                                   'something.')
+                if liberalslice is False:
+                    raise RuntimeError('The number of triggers found is different '
+                                       'than expected. Better stop now than break '
+                                       'something.')
+                elif liberalslice:
+                    LGR.warning('The number of triggers found is different than expected '
+                                f'({phys_in.num_timepoints_found} vs {num_timepoints_expected}). '
+                                'Please DO CHECK YOUR RESULTS. phys2bids cannot guarantee '
+                                'a correct split and conversion in this case.')
 
             # slice the recording based on user's entries
             # !!! ATTENTION: PHYS_IN GETS OVERWRITTEN AS DICTIONARY
             phys_in = slice4phys(phys_in, num_timepoints_expected, tr,
-                                 phys_in.thr, pad)
+                                 phys_in.thr, pad, liberalslice)
             # returns a dictionary in the form {take_idx: phys_in[startpoint, endpoint]}
 
             # save a figure for each take | give the right acquisition parameters for takes

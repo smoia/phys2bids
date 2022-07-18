@@ -134,6 +134,16 @@ def _get_parser():
                           help='full path to file with info needed to generate '
                                'participant.tsv file ',
                           default='')
+    optional.add_argument('-liberal-slicing', '--liberal-slicing',
+                          dest='liberalslice',
+                          action='store_true',
+                          help='Allow phys2bids to slice\'n\'dice your files, '
+                               'even if the total number of TRs is not correct. '
+                               'Default is to raise an error and stop if this '
+                               'happens. Use this option only if you know what '
+                               'you are doing, you are prepared to check all '
+                               'results one by one, and completely at your own risk.',
+                          default=False)
     optional.add_argument('-debug', '--debug',
                           dest='debug',
                           action='store_true',

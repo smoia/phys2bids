@@ -286,7 +286,7 @@ def phys2bids(filename, info=False, indir='.', outdir='.', heur_file=None,
             # slice the recording based on user's entries
             # !!! ATTENTION: PHYS_IN GETS OVERWRITTEN AS DICTIONARY
             phys_in = slice4phys(phys_in, num_timepoints_expected, tr,
-                                 phys_in.thr, pad, liberalslice)
+                                 phys_in.thr, pad)
             # returns a dictionary in the form {take_idx: phys_in[startpoint, endpoint]}
 
             # save a figure for each take | give the right acquisition parameters for takes

@@ -65,11 +65,11 @@ We apologise for any discomfort.
 Hacktoberfest participants, welcome!
 We have some issues for you [here](https://github.com/physiopy/phys2bids/issues?q=is%3Aissue+is%3Aopen+label%3Ahacktoberfest)!
 However, feel free to tackle any issue you'd like. Depending on the issue and extent of contribution, Hacktoberfest related PRs might not count toward being listed as contributors and authors (unless there is the specific interest). You can ask about it in the issue itself!
-Feel free to ask help to the contributors through issues or contactign directly Stefano, happy coding and (hopefully) enjoy your tee (or tree)!
-
-**We're always looking for code contributors,** but any suggestion/bug report is welcome! Feel free to open issues!-->
+Feel free to ask help to the contributors through issues or contactign directly Stefano, happy coding and (hopefully) enjoy your tee (or tree)!-->
 
 ## Contributors ✨
+
+**We're always looking for code contributors,** but any suggestion/bug report is welcome! Feel free to open issues!
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 

@@ -4,7 +4,7 @@ import math
 import re
 import shutil
 import subprocess
-from importlib import resources
+import sys
 from os import remove
 from os.path import isfile, join, split
 
@@ -109,8 +109,17 @@ def test_integration_heuristic(skip_integration, multifreq_lab_file):
     test_ntp = 30
     test_tr = 1.2
     test_thr = 0.735
-    ref = resources.files("phys2bids") / "heuristics"
-    with resources.as_file(ref) as heur_path:
+
+    if sys.version_info >= (3, 9):
+        from importlib import resources
+
+        ref = resources.files("phys2bids") / "heuristics"
+        with resources.as_file(ref) as heur_path:
+            test_heur = join(heur_path, "heur_test_multifreq.py")
+    else:
+        from pkg_resources import resource_filename
+
+        heur_path = resource_filename("phys2bids", "heuristics")
         test_heur = join(heur_path, "heur_test_multifreq.py")
 
     # Move into folder

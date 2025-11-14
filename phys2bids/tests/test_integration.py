@@ -4,11 +4,11 @@ import math
 import re
 import shutil
 import subprocess
+import sys
 from os import remove
 from os.path import isfile, join, split
 
 import pytest
-from pkg_resources import resource_filename
 
 from phys2bids._version import get_versions
 from phys2bids.phys2bids import phys2bids
@@ -109,8 +109,18 @@ def test_integration_heuristic(skip_integration, multifreq_lab_file):
     test_ntp = 30
     test_tr = 1.2
     test_thr = 0.735
-    heur_path = resource_filename("phys2bids", "heuristics")
-    test_heur = join(heur_path, "heur_test_multifreq.py")
+
+    if sys.version_info >= (3, 9):
+        from importlib import resources
+
+        ref = resources.files("phys2bids") / "heuristics"
+        with resources.as_file(ref) as heur_path:
+            test_heur = join(heur_path, "heur_test_multifreq.py")
+    else:
+        from pkg_resources import resource_filename
+
+        heur_path = resource_filename("phys2bids", "heuristics")
+        test_heur = join(heur_path, "heur_test_multifreq.py")
 
     # Move into folder
     subprocess.run(f"cd {test_path}", shell=True, check=True)

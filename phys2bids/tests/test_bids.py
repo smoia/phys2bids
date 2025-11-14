@@ -1,9 +1,9 @@
 import os
+import sys
 from csv import reader
 
 import pytest
 import yaml
-from pkg_resources import resource_filename
 
 from phys2bids import bids
 from phys2bids.bids import UNIT_ALIASES
@@ -34,12 +34,26 @@ def test_bidsify_units():
 @pytest.mark.parametrize("test_sub", ["SBJ01", "sub-006", "006"])
 @pytest.mark.parametrize("test_ses", ["", "S05", "ses-42", "42"])
 def test_use_heuristic(tmpdir, test_sub, test_ses):
-    test_heur_path = resource_filename("phys2bids", "heuristics")
     test_heur_file = "heur_test_acq.py"
-    test_full_heur_path = os.path.join(test_heur_path, test_heur_file)
-    test_input_path = resource_filename("phys2bids", "tests/data")
     test_input_file = "Test_belt_pulse_samefreq.acq"
-    test_full_input_path = os.path.join(test_input_path, test_input_file)
+
+    if sys.version_info >= (3, 9):
+        from importlib import resources
+
+        ref = resources.files("phys2bids") / "heuristics"
+        with resources.as_file(ref) as test_heur_path:
+            test_full_heur_path = os.path.join(test_heur_path, test_heur_file)
+        ref = resources.files("phys2bids") / "tests/data"
+        with resources.as_file(ref) as test_input_path:
+            test_full_input_path = os.path.join(test_input_path, test_input_file)
+    else:
+        from pkg_resources import resource_filename
+
+        test_heur_path = resource_filename("phys2bids", "heuristics")
+        test_full_heur_path = os.path.join(test_heur_path, test_heur_file)
+        test_input_path = resource_filename("phys2bids", "tests/data")
+        test_full_input_path = os.path.join(test_input_path, test_input_file)
+
     test_outdir = tmpdir
     test_record_label = "test"
 

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """Parser for phys2bids."""
 
-
 import argparse
 
 from phys2bids import __version__
@@ -28,7 +27,8 @@ def _get_parser():
         "--input-file",
         dest="filename",
         type=str,
-        help="The name of the file containing physiological " "data, with or without extension.",
+        help="The name of the file containing physiological "
+        "data, with or without extension.",
         required=True,
     )
     optional.add_argument(
@@ -36,7 +36,7 @@ def _get_parser():
         "--info",
         dest="info",
         action="store_true",
-        help="Only output info about the file, don't process. " "Default is to process.",
+        help="Only output info about the file, don't process. Default is to process.",
         default=False,
     )
     optional.add_argument(
@@ -44,7 +44,7 @@ def _get_parser():
         "--input-dir",
         dest="indir",
         type=str,
-        help="Folder containing input. " "Default is current folder.",
+        help="Folder containing input. Default is current folder.",
         default=".",
     )
     optional.add_argument(
@@ -77,7 +77,7 @@ def _get_parser():
         "--subject",
         dest="sub",
         type=str,
-        help='Specify alongside "-heur". Code of ' "subject to process.",
+        help='Specify alongside "-heur". Code of subject to process.',
         default=None,
     )
     optional.add_argument(
@@ -85,7 +85,7 @@ def _get_parser():
         "--session",
         dest="ses",
         type=str,
-        help='Specify alongside "-heur". Code of ' "session to process.",
+        help='Specify alongside "-heur". Code of session to process.',
         default=None,
     )
     optional.add_argument(
@@ -151,9 +151,9 @@ def _get_parser():
         "--padding",
         dest="pad",
         type=float,
-        help="Padding in seconds used around a single run "
-        "when separating multi-run session files. "
-        "Default is 9 seconds.",
+        help="Amount of seconds of recording that is saved around the real take, "
+        "both before and after. At the moment it should be less than the "
+        "time between two takes. Default is 9 seconds.",
         default=9,
     )
     optional.add_argument(
@@ -170,7 +170,7 @@ def _get_parser():
         "--participant-yml",
         dest="yml",
         type=str,
-        help="full path to file with info needed to generate " "participant.tsv file ",
+        help="full path to file with info needed to generate participant.tsv file ",
         default="",
     )
     optional.add_argument(
@@ -189,7 +189,9 @@ def _get_parser():
         help="Only print warnings to log file. Default is False.",
         default=False,
     )
-    optional.add_argument("-v", "--version", action="version", version=("%(prog)s " + __version__))
+    optional.add_argument(
+        "-v", "--version", action="version", version=("%(prog)s " + __version__)
+    )
 
     parser._action_groups.append(optional)
 

@@ -27,8 +27,7 @@ def _get_parser():
         "--input-file",
         dest="filename",
         type=str,
-        help="The name of the file containing physiological "
-        "data, with or without extension.",
+        help="The name of the file containing physiological " "data, with or without extension.",
         required=True,
     )
     optional.add_argument(
@@ -189,9 +188,7 @@ def _get_parser():
         help="Only print warnings to log file. Default is False.",
         default=False,
     )
-    optional.add_argument(
-        "-v", "--version", action="version", version=("%(prog)s " + __version__)
-    )
+    optional.add_argument("-v", "--version", action="version", version=("%(prog)s " + __version__))
 
     parser._action_groups.append(optional)
 

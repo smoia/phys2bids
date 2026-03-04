@@ -103,6 +103,15 @@
       ]
     },
     {
+      "login": "BitForge95",
+      "name": "Guttula Charan Sai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/198489666?v=4",
+      "profile": "https://bitforge95.github.io/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
       "login": "yarikoptic",
       "name": "Yaroslav Halchenko",
       "avatar_url": "https://avatars.githubusercontent.com/u/39889?v=4",
@@ -199,8 +208,17 @@
       ]
     },
     {
+      "login": "me-pic",
+      "name": "Marie-Eve Picard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/77584086?v=4",
+      "profile": "https://github.com/me-pic",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
       "login": "bpinsard",
-      "name": "Basile",
+      "name": "Basile Pinsard",
       "avatar_url": "https://avatars.githubusercontent.com/u/1155388?v=4",
       "profile": "https://github.com/bpinsard",
       "contributions": [
@@ -308,24 +326,6 @@
       "name": "victox5",
       "avatar_url": "https://avatars1.githubusercontent.com/u/56017659?v=4",
       "profile": "https://github.com/victox5",
-      "contributions": [
-        "doc"
-      ]
-    },
-    {
-      "login": "me-pic",
-      "name": "Marie-Eve Picard",
-      "avatar_url": "https://avatars.githubusercontent.com/u/77584086?v=4",
-      "profile": "https://github.com/me-pic",
-      "contributions": [
-        "review"
-      ]
-    },
-    {
-      "login": "BitForge95",
-      "name": "Guttula Charan Sai",
-      "avatar_url": "https://avatars.githubusercontent.com/u/198489666?v=4",
-      "profile": "https://bitforge95.github.io/",
       "contributions": [
         "doc"
       ]

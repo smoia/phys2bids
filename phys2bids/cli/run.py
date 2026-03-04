@@ -151,7 +151,7 @@ def _get_parser():
         dest="pad",
         type=float,
         help="Amount of seconds of recording that is saved around the real take, "
-        "both before and after. At the moment it should be less than the "
+        "both before and after it. At the moment it should be less than the "
         "time between two takes. Default is 9 seconds.",
         default=9,
     )

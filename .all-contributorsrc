@@ -320,6 +320,15 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "BitForge95",
+      "name": "Guttula Charan Sai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/198489666?v=4",
+      "profile": "https://bitforge95.github.io/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "commitType": "docs"

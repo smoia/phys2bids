@@ -30,8 +30,19 @@
             "name": "In\u00e9s Chavarr\u00eda"
         },
         {
+            "affiliation": "Taipei Medical University",
+            "name": "Niall Duncan"
+        },
+        {
             "affiliation": "BCBL - Basque Center on Cognition, Brain and Language",
             "name": "Vicente Ferrer"
+        },
+        {
+            "name": "Guttula Charan Sai"
+        },
+        {
+            "affiliation": "Dartmouth College",
+            "name": "Yaroslav Halchenko"
         },
         {
             "name": "Soichi Hayashi"
@@ -48,12 +59,27 @@
             "name": "Ross Markello"
         },
         {
+            "affiliation": "McGill University",
+            "name": "Mary Miedema"
+        },
+        {
             "orcid": "0000-0002-2553-3327",
             "affiliation": "BCBL - Basque Center on Cognition, Brain and Language",
             "name": "Stefano Moia"
         },
         {
             "name": "Robert Oostenveld"
+        },
+        {
+            "affiliation": "Université de Montréal",
+            "name": "Marie-Eve Picard"
+        },
+        {
+            "affiliation": "Université de Montréal",
+            "name": "Basile Pinsard"
+        },
+        {
+            "name": "David Romero-Bascones"
         },
         {
             "orcid": "0000-0001-9813-3167",
@@ -74,8 +100,15 @@
             "name": "Merel van der Thiel"
         },
         {
+            "name": "Hao-Ting Wang"
+        },
+        {
             "affiliation": "Northwestern University",
             "name": "Kristina Zvolanek"
+        },
+        {
+            "affiliation": "Radboud University",
+            "name": "Marcel Zwiers"
         }
     ],
     "access_right": "open"

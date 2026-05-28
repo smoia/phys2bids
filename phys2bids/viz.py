@@ -136,8 +136,7 @@ def plot_trigger(
     ax2.set_title("Ending triggers for selected threshold")
     subplot.plot(time, trigger, "-", time, block, "-")
     subplot.fill_between(time, block, where=block >= d, interpolate=True, color="#ffbb6e")
-    if "PYTEST_CURRENT_TEST" not in os.environ:
-        plt.savefig(fileprefix + "_trigger_time.png", dpi=dpi)
+    plt.savefig(fileprefix + "_trigger_time.png", dpi=dpi)
     plt.close()
 
 

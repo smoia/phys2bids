@@ -89,6 +89,34 @@ jobs:
           paths:
             - src/coverage/.coverage.py310
 
+  test313:
+    docker:
+      - image: cimg/python:3.13
+    working_directory: /tmp/src/phys2bids
+    resource_class: medium
+    steps:
+      - checkout
+      - python/install-packages:
+          path-args: .[test]
+          pypi-cache: false
+          venv-cache: false
+          pkg-manager: pip-dist
+      - run: mkdir -p test-results
+      - run:
+          name: Run tests
+          command: |
+            pytest --junitxml=test-results/junit.xml -o junit_family=legacy --cov=./phys2bids
+            mkdir /tmp/src/coverage
+            mv ./.coverage /tmp/src/coverage/.coverage.py313
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: /tmp/src/coverage
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - src/coverage/.coverage.py313
+
   style_check:
     docker:
       - image: cimg/python:3.7
@@ -145,7 +173,11 @@ workflows:
       - test310:
           requires:
             - style_check
+      - test313:
+          requires:
+            - style_check
       - merge_coverage:
           requires:
             - test37
             - test310
+            - test313

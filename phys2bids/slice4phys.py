@@ -59,7 +59,7 @@ def find_takes(phys_in, ntp_list, tr_list, thr=None, padding=9):
         if take_idx == 0:
             take_start = 0
         else:
-            take_start = int(np.where(np.isclose(phys_in.timeseries[0], 0))[0])
+            take_start = int(np.argmax(np.isclose(phys_in.timeseries[0], 0)))
 
         # Defining end of acquisition
         # take length in seconds

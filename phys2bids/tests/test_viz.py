@@ -1,6 +1,6 @@
 import os
 
-import pytest
+import matplotlib
 
 from phys2bids import io, viz
 
@@ -17,14 +17,17 @@ def test_plot_all(samefreq_full_acq_file):
         test_filename,
         outfile=test_path,
     )
-    assert os.path.isfile(
-        os.path.join(test_path, os.path.splitext(os.path.basename(test_filename))[0] + ".png")
+
+    outfile = os.path.join(
+        test_path, os.path.splitext(os.path.basename(test_filename))[0] + ".png"
     )
+    assert os.path.isfile(outfile)
     assert len(viz.plt.get_fignums()) == 0, "plots are not closed, this can cause memory leaks"
+    matplotlib.pyplot.close()
+    os.remove(outfile)
 
 
 # Expected to fail due to trigger plot issue
-@pytest.mark.xfail
 def test_plot_trigger(samefreq_full_acq_file):
     chtrig = 3
     test_path, test_filename = os.path.split(samefreq_full_acq_file)
@@ -35,3 +38,5 @@ def test_plot_trigger(samefreq_full_acq_file):
     )
     assert os.path.isfile(out + "_trigger_time.png")
     assert len(viz.plt.get_fignums()) == 0, "plots are not closed, this can cause memory leaks"
+    matplotlib.pyplot.close()
+    os.remove(out + "_trigger_time.png")

@@ -24,7 +24,7 @@ phys2bids
 [![Supports python version](https://img.shields.io/pypi/pyversions/phys2bids)](https://pypi.org/project/phys2bids/)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-28-orange.svg?style=flat)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ``phys2bids`` is a python3 library meant to format physiological files in BIDS.
@@ -106,7 +106,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="25%"><a href="https://github.com/robertoostenveld"><img src="https://avatars1.githubusercontent.com/u/899043?v=4?s=100" width="100px;" alt="Robert Oostenveld"/><br /><sub><b>Robert Oostenveld</b></sub></a><br /><a href="#ideas-robertoostenveld" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/physiopy/phys2bids/pulls?q=is%3Apr+reviewed-by%3Arobertoostenveld" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="25%"><a href="https://github.com/me-pic"><img src="https://avatars.githubusercontent.com/u/77584086?v=4?s=100" width="100px;" alt="Marie-Eve Picard"/><br /><sub><b>Marie-Eve Picard</b></sub></a><br /><a href="https://github.com/physiopy/phys2bids/pulls?q=is%3Apr+reviewed-by%3Ame-pic" title="Reviewed Pull Requests">👀</a></td>
-      <td align="center" valign="top" width="25%"><a href="https://github.com/bpinsard"><img src="https://avatars.githubusercontent.com/u/1155388?v=4?s=100" width="100px;" alt="Basile"/><br /><sub><b>Basile Pinsard</b></sub></a><br /><a href="https://github.com/physiopy/phys2bids/commits?author=bpinsard" title="Code">💻</a> <a href="https://github.com/physiopy/phys2bids/commits?author=bpinsard" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="25%"><a href="https://github.com/bpinsard"><img src="https://avatars.githubusercontent.com/u/1155388?v=4?s=100" width="100px;" alt="Basile Pinsard"/><br /><sub><b>Basile Pinsard</b></sub></a><br /><a href="https://github.com/physiopy/phys2bids/commits?author=bpinsard" title="Code">💻</a> <a href="https://github.com/physiopy/phys2bids/commits?author=bpinsard" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="25%"><a href="https://github.com/drombas"><img src="https://avatars.githubusercontent.com/u/50577357?v=4?s=100" width="100px;" alt="David Romero-Bascones"/><br /><sub><b>David Romero-Bascones</b></sub></a><br /><a href="https://github.com/physiopy/phys2bids/issues?q=author%3Adrombas" title="Bug reports">🐛</a> <a href="https://github.com/physiopy/phys2bids/commits?author=drombas" title="Code">💻</a> <a href="https://github.com/physiopy/phys2bids/commits?author=drombas" title="Documentation">📖</a> <a href="#content-drombas" title="Content">🖋</a></td>
     </tr>
     <tr>
@@ -120,6 +120,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="25%"><a href="https://github.com/kristinazvolanek"><img src="https://avatars3.githubusercontent.com/u/54590158?v=4?s=100" width="100px;" alt="Kristina Zvolanek"/><br /><sub><b>Kristina Zvolanek</b></sub></a><br /><a href="#data-kristinazvolanek" title="Data">🔣</a> <a href="#content-kristinazvolanek" title="Content">🖋</a> <a href="https://github.com/physiopy/phys2bids/commits?author=kristinazvolanek" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="25%"><a href="https://github.com/marcelzwiers"><img src="https://avatars.githubusercontent.com/u/15156015?v=4?s=100" width="100px;" alt="Marcel Zwiers"/><br /><sub><b>Marcel Zwiers</b></sub></a><br /><a href="#plugin-marcelzwiers" title="Plugin/utility libraries">🔌</a></td>
       <td align="center" valign="top" width="25%"><a href="https://github.com/victox5"><img src="https://avatars1.githubusercontent.com/u/56017659?v=4?s=100" width="100px;" alt="victox5"/><br /><sub><b>victox5</b></sub></a><br /><a href="https://github.com/physiopy/phys2bids/commits?author=victox5" title="Documentation">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="25%"><a href="https://github.com/slugtmeijer"><img src="https://avatars.githubusercontent.com/u/134110542?v=4?s=100" width="100px;" alt="Selma Lugtmeijer"/><br /><sub><b>Selma Lugtmeijer</b></sub></a><br /><a href="https://github.com/physiopy/phys2bids/issues?q=author%3Aslugtmeijer" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
